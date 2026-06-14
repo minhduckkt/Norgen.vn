@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="vi" data-base="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Công tắc chân không: xác nhận vật được giữ chắc trước khi di chuyển</title>
+    <meta name="description" content="Vai trò của công tắc chân không (vacuum switch) trong giám sát gắp-đặt, cách đặt ngưỡng xác nhận vật đã hút chắc, đấu nối tín hiệu cho PLC và cách lập RFQ." />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="https://norgren.vn/blog/cong-tac-chan-khong-norgren-giam-sat-gap/" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Norgren Việt Nam" />
+    <meta property="og:url" content="https://norgren.vn/blog/cong-tac-chan-khong-norgren-giam-sat-gap/" />
+    <meta property="og:title" content="Công tắc chân không: xác nhận vật được giữ chắc trước khi di chuyển" />
+    <meta property="og:description" content="Vai trò của công tắc chân không (vacuum switch) trong giám sát gắp-đặt, cách đặt ngưỡng xác nhận vật đã hút chắc, đấu nối tín hiệu cho PLC và cách lập RFQ." />
+    <meta property="og:image" content="https://norgren.vn/assets/images/site/vacuum.webp" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content="https://norgren.vn/assets/images/site/vacuum.webp" />
+    <meta name="theme-color" content="#101820" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="stylesheet" href="../../assets/site.css?v=20260614-visual-blog-2" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trang chủ","item":"https://norgren.vn/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://norgren.vn/blog/"},{"@type":"ListItem","position":3,"name":"Công tắc chân không: xác nhận vật được giữ chắc trước khi di chuyển","item":"https://norgren.vn/blog/cong-tac-chan-khong-norgren-giam-sat-gap/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Công tắc chân không: xác nhận vật được giữ chắc trước khi di chuyển","description":"Vai trò của công tắc chân không (vacuum switch) trong giám sát gắp-đặt, cách đặt ngưỡng xác nhận vật đã hút chắc, đấu nối tín hiệu cho PLC và cách lập RFQ.","mainEntityOfPage":"https://norgren.vn/blog/cong-tac-chan-khong-norgren-giam-sat-gap/","author":{"@type":"Organization","name":"Fast Group Engineering"},"publisher":{"@type":"Organization","name":"Fast Group Engineering"},"datePublished":"2026-06-14","dateModified":"2026-06-14"}</script>
+  </head>
+  <body>
+    
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../../index.html" aria-label="Norgren Viet Nam">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span>
+            <span class="brand-name">Norgren Việt Nam</span>
+            <span class="brand-sub">Fast Group Engineering</span>
+          </span>
+        </a>
+        
+        <nav class="nav" data-nav>
+          <a href="../../index.html">Trang chủ</a>
+          <a href="../../san-pham/index.html">Sản phẩm</a>
+          <a href="../../danh-muc/index.html">Danh mục</a>
+          <a href="../../tai-lieu/index.html">Tài liệu</a>
+          <a href="../../blog/index.html">Blog</a>
+          <a href="../../tim-kiem-ma-norgren/index.html">Tìm mã</a>
+        </nav>
+        <div class="header-actions">
+          <a class="button button-primary" href="../../lien-he/index.html">Gửi RFQ</a>
+          <button class="icon-button" data-nav-toggle aria-label="Mở menu">☰</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      
+    
+    <section class="page-hero">
+      <div class="container page-hero-inner page-hero-grid">
+        <div class="page-hero-copy">
+          <div class="breadcrumb"><a href="../index.html">Blog</a><span>/</span><span>Công tắc chân không: xác nhận vật được giữ chắc trước khi di chuyển</span></div>
+          <div class="eyebrow">Commercial</div>
+          <h1>Công tắc chân không: xác nhận vật được giữ chắc trước khi di chuyển</h1>
+          <p class="lead">Công tắc chân không báo cho PLC biết vật đã được hút đủ chắc trước khi robot di chuyển, tránh rơi vật. Bài viết hướng dẫn vai trò, cách đặt ngưỡng và đấu nối.</p>
+          
+        </div>
+        <figure class="page-hero-visual"><img src="../../assets/images/site/vacuum.webp" alt="Công tắc chân không: xác nhận vật được giữ chắc trước khi di chuyển" loading="eager" /></figure>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container blog-layout">
+        <article class="blog-article"><p>Trong hệ gắp-đặt, rủi ro lớn nhất là robot di chuyển khi vật <strong>chưa được hút đủ chắc</strong>, dẫn đến rơi vật, hỏng sản phẩm hoặc dừng chuyền. Công tắc chân không (vacuum switch) giải quyết việc này bằng cách báo cho PLC biết độ chân không đã đạt ngưỡng an toàn trước khi cho phép di chuyển.</p>
+<h3>Vai trò của công tắc chân không</h3>
+<p>Công tắc chân không giám sát độ chân không trong mạch hút và phát tín hiệu khi đạt/không đạt ngưỡng. Tín hiệu này là điều kiện &quot;cho phép di chuyển&quot; trong logic PLC: chỉ khi vật đã hút chắc, robot mới được phép nâng và di chuyển.</p>
+<h3>Đặt ngưỡng xác nhận hút chắc</h3>
+<p>Nguyên tắc: đặt ngưỡng ở mức độ chân không đủ để giữ vật an toàn (có biên), không quá thấp (xác nhận sớm khi chưa chắc) cũng không quá cao (khó đạt với bề mặt hơi rò). Cần cân nhắc:</p>
+<ul>
+<li>Độ chân không tối thiểu để giữ vật theo tính toán lực giữ.</li>
+<li>Đặc tính bề mặt (kín/xốp) ảnh hưởng độ chân không duy trì.</li>
+<li>Vi sai để tránh tín hiệu rung quanh ngưỡng.</li>
+</ul>
+<h3>Tín hiệu và đấu nối cho PLC</h3>
+<p>Xác định kiểu tín hiệu cần: ngõ ra số (PNP/NPN) cho tín hiệu cho phép, hoặc IO-Link/analog nếu cần đọc giá trị chân không liên tục. Đấu nối thường qua M12 — cần đúng số chân và coding (xem <a href="/danh-muc/industrial_communication/industrial-cables-connectors/">cáp &amp; đầu nối</a>). Tham khảo tùy chọn trong <a href="/danh-muc/vacuum/vacuum-switches/">công tắc chân không</a>.</p>
+<h3>Bảng thông số cần chốt</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Thông số</th>
+<th>Cần xác định</th>
+<th>Lưu ý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dải đo chân không</td>
+<td>theo hệ thống</td>
+<td>Bao trùm ngưỡng làm việc</td>
+</tr>
+<tr>
+<td>Ngưỡng xác nhận</td>
+<td>mức giữ an toàn</td>
+<td>Có biên, theo lực giữ</td>
+</tr>
+<tr>
+<td>Vi sai</td>
+<td>theo dao động</td>
+<td>Tránh tín hiệu rung</td>
+</tr>
+<tr>
+<td>Kiểu ngõ ra</td>
+<td>PNP/NPN/IO-Link/analog</td>
+<td>Theo PLC</td>
+</tr>
+<tr>
+<td>Đấu nối</td>
+<td>M12 số chân/coding</td>
+<td>Theo cáp</td>
+</tr>
+<tr>
+<td>Cổng nối chân không</td>
+<td>ren/đầu nối</td>
+<td>Theo mạch hút</td>
+</tr>
+</tbody></table></div>
+<h3>Checklist triển khai công tắc chân không</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Đã tính độ chân không tối thiểu giữ vật</li>
+<li><input disabled="" type="checkbox"> Đã đặt ngưỡng xác nhận có biên an toàn</li>
+<li><input disabled="" type="checkbox"> Đã cấu hình vi sai tránh rung tín hiệu</li>
+<li><input disabled="" type="checkbox"> Đã chọn kiểu ngõ ra phù hợp PLC</li>
+<li><input disabled="" type="checkbox"> Đã xác định đấu nối M12/coding</li>
+<li><input disabled="" type="checkbox"> Đã đưa tín hiệu vào logic &quot;cho phép di chuyển&quot;</li>
+</ul>
+<h2>FAQ</h2>
+<h3>Công tắc chân không khác cảm biến chân không thế nào?</h3>
+<p>Công tắc cho tín hiệu đạt/không đạt ngưỡng; cảm biến (analog/IO-Link) cho giá trị liên tục. Nếu chỉ cần điều kiện cho phép di chuyển, công tắc thường đủ; nếu cần giám sát giá trị, dùng cảm biến.</p>
+<h3>Đặt ngưỡng thấp để xác nhận nhanh có nên không?</h3>
+<p>Không nên. Ngưỡng quá thấp có thể cho phép di chuyển khi vật chưa hút chắc, gây rơi vật. Ngưỡng phải đủ để giữ an toàn.</p>
+<h3>Bề mặt vật xốp ảnh hưởng đến ngưỡng ra sao?</h3>
+<p>Bề mặt rò làm khó đạt độ chân không cao, nên ngưỡng cần thực tế và mạch hút (ejector) phải đủ lưu lượng bù rò.</p>
+<h3>Tín hiệu đấu vào PLC kiểu gì?</h3>
+<p>Thường là ngõ ra số PNP/NPN làm điều kiện cho phép; có thể dùng IO-Link/analog nếu cần đọc giá trị. Chọn theo đầu vào PLC.</p>
+<h2>CTA</h2>
+<p>Cần giám sát gắp chân không an toàn? Hãy <a href="/lien-he/">gửi RFQ công tắc chân không</a> kèm <strong>dải chân không hệ thống, độ chân không tối thiểu để giữ vật, kiểu ngõ ra (PNP/NPN/IO-Link), đấu nối M12/coding và cổng nối chân không</strong>. Chúng tôi sẽ đề xuất công tắc và cấu hình phù hợp.</p>
+<hr>
+<div class="blog-commercial-cta"><h2>Cần đối chiếu mã Norgren thực tế?</h2><p>Gửi part number, ảnh tem hoặc BOM để Fast Group hỗ trợ kiểm tra datasheet, phụ kiện và cấu hình trước khi báo giá.</p><div class="blog-cta-actions"><a class="button button-primary" href="../../lien-he/index.html">Gửi RFQ / BOM</a><a class="button button-secondary" href="../../tim-kiem-ma-norgren/index.html">Tra cứu mã Norgren</a></div></div></article>
+        <aside class="blog-sidebar"><div class="blog-side-card"><span class="doc-icon">SEO</span><h3>Chủ đề liên quan</h3><div class="blog-link-list"><a href="../ma-thay-the-norgren-ngung-san-xuat/">Mã Norgren đã ngừng sản xuất: cách tìm mã thay thế tương đương</a><a href="../cach-doc-part-number-norgren/">Cách đọc và giải mã part number Norgren</a><a href="../tach-bom-ma-norgren-va-phu-kien/">BOM có nhiều mã Norgren: cách tách mã chính và phụ kiện liên quan</a><a href="../tim-part-number-norgren-tu-anh-nhan-mo/">Tìm part number khi chỉ còn nhãn mờ hoặc ảnh thiết bị cũ</a><a href="../chon-dien-ap-coil-van-norgren/">Chọn điện áp coil van điện từ Norgren (24VDC, 220VAC)</a><a href="../cach-doc-datasheet-norgren/">Datasheet Norgren gồm những thông số nào và đọc sao cho đúng</a></div></div><div class="blog-side-card"><span class="doc-icon">RFQ</span><h3>Thông tin nên chuẩn bị</h3><p>Part number đầy đủ, số lượng, điện áp/cổng ren, ảnh tem và yêu cầu tài liệu nếu có.</p><a class="button button-primary" href="../../lien-he/index.html">Gửi yêu cầu</a></div></aside>
+      </div>
+    </section>
+    </main>
+    
+    <footer class="site-footer">
+      <div class="footer-shell">
+        <div class="footer-kicker">Norgren Việt Nam · Kênh tra cứu và báo giá Norgren chính hãng</div>
+        <div class="footer-main">
+          <div class="footer-brand footer-column">
+          <a class="footer-logo" href="../../index.html">
+            <span class="brand-mark" aria-hidden="true">N</span>
+            <span>
+              <span class="footer-logo-title">Norgren Việt Nam</span>
+              <span class="footer-logo-sub">Fast Group Engineering</span>
+            </span>
+          </a>
+            <p>Cung cấp và hỗ trợ báo giá sản phẩm Norgren chính hãng cho nhà máy, đại lý, nhà thầu và bộ phận mua hàng kỹ thuật tại Việt Nam.</p>
+            <div class="footer-company">
+              <strong>Công ty TNHH Fast Group</strong>
+              <span>MST: 0315555189</span>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Danh mục Norgren</h3>
+            <div class="footer-links">
+              <a href="../../san-pham/index.html">Tổng quan sản phẩm</a>
+              <a href="../../danh-muc/valves/">Valves</a><a href="../../danh-muc/pressure_switches_sensors/">Pressure Switches &amp; Sensors</a><a href="../../danh-muc/vacuum/">Vacuum</a><a href="../../danh-muc/industrial_communication/">Industrial Communication / IO-Link</a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Năng lực hỗ trợ</h3>
+            <div class="footer-links">
+              <a href="../../tim-kiem-ma-norgren/index.html">Tra cứu part number</a>
+              <a href="../../tai-lieu/index.html">Datasheet & tài liệu kỹ thuật</a>
+              <a href="../../blog/index.html">Blog kỹ thuật</a>
+              <a href="../../lien-he/index.html">Gửi RFQ / BOM</a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Thông tin liên hệ</h3>
+            <div class="footer-contact">
+              <div><span>Trụ sở</span><p>150/41 Nguyen Cu Trinh Street, Cau Ong Lanh Ward, District 1, Ho Chi Minh City, Vietnam</p></div>
+              <div><span>Vũng Tàu</span><p>51 Le Van Loc Street, Vung Tau City, Vietnam</p></div>
+              <div><span>Điện thoại</span><a href="tel:+84938888958">(+84) 938 888 958</a></div>
+              <div><span>Email</span><a href="mailto:sales@norgren.com.vn">sales@norgren.com.vn</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>© 2026 Norgren Việt Nam · <a href="https://fastgroup.vn" target="_blank" rel="noopener">Công ty TNHH Fast Group</a></div>
+          <div>Ưu tiên nguồn hàng Norgren UK/Europe; thông số và cấu hình được xác nhận trước khi đặt hàng.</div>
+        </div>
+      </div>
+    </footer>
+    <div class="floating-contact" aria-label="Liên hệ nhanh">
+      <a href="https://zalo.me/84938888958" aria-label="Liên hệ qua Zalo" title="Zalo"><span class="floating-icon" aria-hidden="true">Z</span>Zalo</a>
+      <a href="tel:+84938888958" aria-label="Gọi (+84) 938 888 958" title="Gọi ngay"><span class="floating-icon" aria-hidden="true">☎</span>Gọi ngay</a>
+    </div>
+    
+    <script src="../../assets/search.js?v=20260614-visual-blog-2" defer></script>
+    <script>
+      document.querySelector("[data-nav-toggle]")?.addEventListener("click", () => {
+        document.querySelector("[data-nav]")?.classList.toggle("is-open");
+      });
+    </script>
+  </body>
+</html>

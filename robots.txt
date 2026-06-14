@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://norgren.vn/sitemap.xml
