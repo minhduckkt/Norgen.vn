@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="vi" data-base="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cảm biến áp suất DD1 Norgren 34D IO-Link – Đọc output và hiệu chuẩn</title>
+    <meta name="description" content="Hướng dẫn kỹ thuật cảm biến áp suất 34D-P016G-DD1-AA Norgren: dải đo 0–16 bar, output analog và IO-Link, màn hình 4 chữ số, thân inox IP67 – đọc đúng tín hiệu và hiệu chuẩn cho hệ giám sát áp." />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="https://norgren.vn/blog/cam-bien-ap-suat-dd1-34d-norgren-io-link-doc-output-hieu-chuan/" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Norgren Việt Nam" />
+    <meta property="og:url" content="https://norgren.vn/blog/cam-bien-ap-suat-dd1-34d-norgren-io-link-doc-output-hieu-chuan/" />
+    <meta property="og:title" content="Cảm biến áp suất DD1 Norgren 34D IO-Link – Đọc output và hiệu chuẩn" />
+    <meta property="og:description" content="Hướng dẫn kỹ thuật cảm biến áp suất 34D-P016G-DD1-AA Norgren: dải đo 0–16 bar, output analog và IO-Link, đọc đúng tín hiệu và hiệu chuẩn." />
+    <meta property="og:image" content="https://norgren.vn/assets/images/products/34d-p016g-dd1-aa.webp" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content="https://norgren.vn/assets/images/products/34d-p016g-dd1-aa.webp" />
+    <meta name="theme-color" content="#101820" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="stylesheet" href="../../assets/site.css?v=20260614-visual-blog-2" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trang chủ","item":"https://norgren.vn/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://norgren.vn/blog/"},{"@type":"ListItem","position":3,"name":"Cảm biến áp suất DD1 Norgren 34D IO-Link","item":"https://norgren.vn/blog/cam-bien-ap-suat-dd1-34d-norgren-io-link-doc-output-hieu-chuan/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cảm biến áp suất DD1 Norgren 34D IO-Link – Đọc output và hiệu chuẩn","description":"Hướng dẫn kỹ thuật 34D-P016G-DD1-AA Norgren: dải đo 0–16 bar, output IO-Link/analog, đọc tín hiệu và hiệu chuẩn.","mainEntityOfPage":"https://norgren.vn/blog/cam-bien-ap-suat-dd1-34d-norgren-io-link-doc-output-hieu-chuan/","author":{"@type":"Organization","name":"Fast Group Engineering"},"publisher":{"@type":"Organization","name":"Fast Group Engineering"},"datePublished":"2026-06-15","dateModified":"2026-06-15"}</script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../../index.html" aria-label="Norgren Viet Nam">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span>
+            <span class="brand-name">Norgren Việt Nam</span>
+            <span class="brand-sub">Fast Group Engineering</span>
+          </span>
+        </a>
+        <nav class="nav" data-nav>
+          <a href="../../index.html">Trang chủ</a>
+          <a href="../../san-pham/index.html">Sản phẩm</a>
+          <a href="../../danh-muc/index.html">Danh mục</a>
+          <a href="../../tai-lieu/index.html">Tài liệu</a>
+          <a href="../../blog/index.html">Blog</a>
+          <a href="../../tim-kiem-ma-norgren/index.html">Tìm mã</a>
+        </nav>
+        <div class="header-actions">
+          <a class="button button-primary" href="../../lien-he/index.html">Gửi RFQ</a>
+          <button class="icon-button" data-nav-toggle aria-label="Mở menu">☰</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero">
+        <div class="container page-hero-inner page-hero-grid">
+          <div class="page-hero-copy">
+            <div class="breadcrumb"><a href="../index.html">Blog</a><span>/</span><span>Cảm biến áp suất DD1 Norgren 34D IO-Link</span></div>
+            <div class="eyebrow">Kỹ thuật · Pressure Switches &amp; Sensors</div>
+            <h1>Cảm biến áp suất 34D-P016G-DD1-AA Norgren IO-Link – Đọc output đúng và hiệu chuẩn</h1>
+            <p class="lead">Cảm biến 34D của Norgren hỗ trợ đồng thời tín hiệu analog (4–20 mA / 0–10 V) và IO-Link, với màn hình 4 chữ số và thân inox IP67 phù hợp môi trường công nghiệp khắc nghiệt. Bài viết hướng dẫn cách đọc tín hiệu output, cài đặt ngưỡng switching và hiệu chuẩn ban đầu.</p>
+          </div>
+          <figure class="page-hero-visual"><img src="../../assets/images/products/34d-p016g-dd1-aa.webp" alt="Cảm biến áp suất DD1 Norgren 34D IO-Link" loading="eager" /></figure>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container blog-layout">
+          <article class="blog-article">
+            <p>Cảm biến áp suất điện tử <strong>34D-P016G-DD1-AA</strong> thuộc dòng 34D của IMI Norgren, thiết kế cho giám sát áp suất trong khí nén, thủy lực và các chất lỏng công nghiệp (allfluid). Với dải đo 0–16 bar, tín hiệu IO-Link tích hợp, thân inox bảo vệ IP67 và nhiệt độ làm việc rộng từ -25 đến 80 °C, đây là lựa chọn phù hợp cho ứng dụng giám sát áp chính xác tại nhà máy và hệ thống cần khả năng kết nối Smart Factory.</p>
+
+            <h3>Thông số kỹ thuật chính – 34D-P016G-DD1-AA</h3>
+            <div class="table-scroll"><table>
+              <thead><tr><th>Thông số</th><th>Giá trị</th><th>Ghi chú</th></tr></thead>
+              <tbody>
+                <tr><td>Part Number</td><td>34D-P016G-DD1-AA</td><td>Dòng 34D, variant DD1</td></tr>
+                <tr><td>Dải đo áp suất</td><td>0 ... 16 bar</td><td>Gauge pressure</td></tr>
+                <tr><td>Cổng kết nối</td><td>G1/4</td><td>ISO 228</td></tr>
+                <tr><td>Tín hiệu output</td><td>Analog + IO-Link</td><td>4–20 mA / 0–10 V / IO-Link</td></tr>
+                <tr><td>Màn hình</td><td>4 chữ số, đổi màu</td><td>Xanh/đỏ theo ngưỡng cài đặt</td></tr>
+                <tr><td>Cấp bảo vệ</td><td>IP67 (with plug mounted)</td><td>Thân inox</td></tr>
+                <tr><td>Nhiệt độ làm việc</td><td>-25 ... 80 °C</td><td>Môi chất: khí, lỏng</td></tr>
+                <tr><td>Thân</td><td>Stainless steel</td><td>Phù hợp môi trường ẩm/ăn mòn</td></tr>
+                <tr><td>Xuất xứ</td><td>Germany</td><td>—</td></tr>
+                <tr><td>Chứng nhận</td><td>RoHS, REACH, IP67</td><td>—</td></tr>
+              </tbody>
+            </table></div>
+
+            <h3>Các chế độ output của 34D DD1</h3>
+            <p>Cảm biến DD1 hỗ trợ nhiều chế độ truyền tín hiệu, có thể cấu hình qua nút bấm trên thiết bị hoặc qua IO-Link master:</p>
+            <ul>
+              <li><strong>Output analog 4–20 mA</strong>: Tín hiệu dòng điện tỷ lệ với áp suất (0 bar → 4 mA; 16 bar → 20 mA). Phù hợp kết nối trực tiếp vào PLC/DCS với đầu vào analog tiêu chuẩn. Ưu điểm: không bị nhiễu điện áp, đường dây dài.</li>
+              <li><strong>Output analog 0–10 V</strong>: Tín hiệu điện áp tỷ lệ áp suất. Phù hợp với bộ điều khiển có đầu vào điện áp. Lưu ý: nhạy hơn với nhiễu điện áp so với 4–20 mA.</li>
+              <li><strong>Output switch (PNP/NPN)</strong>: Đầu ra nhị phân đóng/ngắt khi áp suất vượt ngưỡng SP1 hoặc SP2. Dùng cho báo động hoặc điều khiển on/off đơn giản.</li>
+              <li><strong>IO-Link (IEC 61131-9)</strong>: Truyền dữ liệu quá trình (process value), tham số cấu hình và dữ liệu chẩn đoán qua một cáp duy nhất. Hỗ trợ đọc giá trị áp suất tức thời, cài đặt ngưỡng từ xa và giám sát trạng thái thiết bị qua hệ thống SCADA/MES.</li>
+            </ul>
+
+            <h3>Cách đọc tín hiệu output analog chính xác</h3>
+            <p>Với output 4–20 mA, công thức quy đổi từ dòng điện sang áp suất:</p>
+            <p><em>P (bar) = (I – 4) × (P_max – P_min) / (20 – 4) + P_min</em></p>
+            <p>Ví dụ với 34D-P016G-DD1-AA (P_min = 0, P_max = 16 bar): I = 12 mA → P = (12 – 4) × 16 / 16 = 8 bar.</p>
+            <p>Một số lỗi đọc thường gặp:</p>
+            <ul>
+              <li>Đọc giá trị nhỏ hơn thực tế: kiểm tra điện trở tải (burden resistor) của đầu vào PLC. Nếu điện trở quá cao, cảm biến không đủ điện áp drive đủ dòng.</li>
+              <li>Tín hiệu dao động: kiểm tra đất chung (common ground) giữa cảm biến và PLC, và che chắn cáp tín hiệu.</li>
+              <li>Offset cố định: thực hiện zero/span calibration bằng nút bấm hoặc qua IO-Link.</li>
+            </ul>
+
+            <h3>Cài đặt ngưỡng switching và đổi màu màn hình</h3>
+            <p>Màn hình 4 chữ số của DD1 có thể cài đặt chuyển màu (xanh ↔ đỏ) tại một ngưỡng áp suất tùy chọn. Điều này giúp kỹ sư vận hành nhận biết ngay trạng thái hệ thống mà không cần đọc số:</p>
+            <ul>
+              <li>Cài đặt qua nút bấm trực tiếp trên thân cảm biến (không cần dụng cụ đặc biệt).</li>
+              <li>Thân trên (upper body) có thể xoay 345° so với đầu nối cổng để hướng màn hình dễ đọc nhất.</li>
+              <li>Qua IO-Link, có thể thay đổi ngưỡng, đơn vị đo và chế độ màu từ xa không cần đến máy.</li>
+            </ul>
+
+            <h3>Hiệu chuẩn ban đầu và Zero Calibration</h3>
+            <p>Sau lắp đặt, thực hiện zero calibration khi cổng cảm biến đang thông đại khí (áp suất bằng 0 gauge):</p>
+            <ul>
+              <li>Vào menu cài đặt qua nút bấm, chọn chức năng Zero.</li>
+              <li>Hoặc gửi lệnh zero qua IO-Link master từ hệ thống điều khiển.</li>
+              <li>Sau zero, kiểm tra span bằng áp suất tham chiếu đã biết (ví dụ từ pressure gauge đã kiểm định).</li>
+            </ul>
+            <p>Không cần hiệu chuẩn định kỳ nếu điều kiện vận hành ổn định. Tuy nhiên, sau sự kiện quá áp (overpressure) hoặc va đập cơ học, nên thực hiện kiểm tra lại điểm zero.</p>
+
+            <h3>Checklist lắp đặt 34D-P016G-DD1-AA</h3>
+            <ul>
+              <li><input disabled type="checkbox" /> Xác nhận cổng G1/4 phù hợp với điểm đo trên hệ thống</li>
+              <li><input disabled type="checkbox" /> Kiểm tra áp suất vận hành nằm trong dải 0–16 bar</li>
+              <li><input disabled type="checkbox" /> Chọn chế độ output phù hợp (4–20 mA / IO-Link)</li>
+              <li><input disabled type="checkbox" /> Hướng màn hình để dễ đọc (xoay body 345°)</li>
+              <li><input disabled type="checkbox" /> Thực hiện zero calibration sau lắp</li>
+              <li><input disabled type="checkbox" /> Kiểm tra cáp và đầu nối IP67 đã khóa chắc</li>
+            </ul>
+
+            <h2>FAQ</h2>
+            <h3>Khác nhau giữa DD1 và DA1 trong dòng 34D là gì?</h3>
+            <p>DD1 đo dải 0–16 bar (gauge dương), còn DA1 đo dải -1 đến +1 bar (bao gồm cả áp âm/chân không). Chọn theo dải áp suất thực tế cần đo trong hệ thống.</p>
+
+            <h3>Cảm biến 34D có thể kết nối trực tiếp với PLC Siemens không?</h3>
+            <p>Có. Output IO-Link tuân thủ IEC 61131-9, tương thích với IO-Link master của Siemens, Balluff, Norgren và nhiều hãng khác. Output analog 4–20 mA kết nối trực tiếp vào module analog input của PLC S7 hoặc tương đương.</p>
+
+            <h3>IP67 có đủ cho môi trường ẩm ướt và rửa nước không?</h3>
+            <p>IP67 cho phép ngâm nước 1 m trong 30 phút. Phù hợp môi trường ẩm và bắn nước định kỳ. Nếu cần rửa áp cao thường xuyên (jet wash), cần xem xét thiết bị có IP69K.</p>
+
+            <h3>Có cần phần mềm đặc biệt để cấu hình qua IO-Link không?</h3>
+            <p>Norgren cung cấp phần mềm cấu hình đi kèm (Software – có trong danh sách tài liệu của sản phẩm). Ngoài ra, có thể dùng bất kỳ IO-Link master và công cụ cấu hình tương thích IEC 61131-9.</p>
+
+            <h2>CTA</h2>
+            <p>Cần tư vấn lựa chọn cảm biến áp suất Norgren dòng 34D cho hệ thống của bạn? <a href="/lien-he/">Gửi RFQ</a> kèm <strong>dải áp suất, môi chất, chuẩn output và yêu cầu IO-Link</strong>. Fast Group Engineering hỗ trợ xác nhận mã, datasheet và báo giá nhanh.</p>
+            <hr />
+            <div class="blog-commercial-cta">
+              <h2>Cần cảm biến áp suất Norgren IO-Link cho nhà máy?</h2>
+              <p>Gửi yêu cầu kèm thông số kỹ thuật để Fast Group Engineering tư vấn đúng model và hỗ trợ báo giá chính hãng.</p>
+              <div class="blog-cta-actions">
+                <a class="button button-primary" href="../../lien-he/index.html">Gửi RFQ / BOM</a>
+                <a class="button button-secondary" href="../../tim-kiem-ma-norgren/index.html">Tra cứu mã Norgren</a>
+              </div>
+            </div>
+          </article>
+          <aside class="blog-sidebar">
+            <div class="blog-side-card">
+              <span class="doc-icon">SEO</span>
+              <h3>Chủ đề liên quan</h3>
+              <div class="blog-link-list">
+                <a href="../nang-cap-pressure-switch-co-sang-cam-bien-dd1-roi-nha-may-vn/">Nâng cấp pressure switch cơ sang cảm biến DD1: ROI thực tế</a>
+                <a href="../chon-dai-do-cong-tac-ap-suat-norgren/">Chọn dải đo và ngưỡng công tắc áp suất Norgren</a>
+                <a href="../nang-cap-cam-bien-ap-suat-dien-tu-norgren/">Nâng cấp từ công tắc cơ sang cảm biến điện tử</a>
+                <a href="../giam-sat-tieu-thu-khi-bang-cam-bien-luu-luong-norgren/">Giám sát tiêu thụ khí nén bằng cảm biến lưu lượng</a>
+                <a href="../cach-doc-datasheet-norgren/">Datasheet Norgren gồm thông số nào và cách đọc</a>
+              </div>
+            </div>
+            <div class="blog-side-card">
+              <span class="doc-icon">RFQ</span>
+              <h3>Thông tin nên chuẩn bị</h3>
+              <p>Part number, dải áp suất, môi chất, loại output cần (analog/IO-Link), số lượng và ứng dụng cụ thể.</p>
+              <a class="button button-primary" href="../../lien-he/index.html">Gửi yêu cầu</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-shell">
+        <div class="footer-kicker">Norgren Việt Nam · Kênh tra cứu và báo giá Norgren chính hãng</div>
+        <div class="footer-main">
+          <div class="footer-brand footer-column">
+            <a class="footer-logo" href="../../index.html">
+              <span class="brand-mark" aria-hidden="true">N</span>
+              <span><span class="footer-logo-title">Norgren Việt Nam</span><span class="footer-logo-sub">Fast Group Engineering</span></span>
+            </a>
+            <p>Cung cấp và hỗ trợ báo giá sản phẩm Norgren chính hãng cho nhà máy, đại lý, nhà thầu và bộ phận mua hàng kỹ thuật tại Việt Nam.</p>
+            <div class="footer-company"><strong>Công ty TNHH Fast Group</strong><span>MST: 0315555189</span></div>
+          </div>
+          <div class="footer-column">
+            <h3>Danh mục Norgren</h3>
+            <div class="footer-links">
+              <a href="../../san-pham/index.html">Tổng quan sản phẩm</a>
+              <a href="../../danh-muc/valves/">Valves</a>
+              <a href="../../danh-muc/pressure_switches_sensors/">Pressure Switches &amp; Sensors</a>
+              <a href="../../danh-muc/vacuum/">Vacuum</a>
+              <a href="../../danh-muc/industrial_communication/">Industrial Communication / IO-Link</a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Năng lực hỗ trợ</h3>
+            <div class="footer-links">
+              <a href="../../tim-kiem-ma-norgren/index.html">Tra cứu part number</a>
+              <a href="../../tai-lieu/index.html">Datasheet &amp; tài liệu kỹ thuật</a>
+              <a href="../../blog/index.html">Blog kỹ thuật</a>
+              <a href="../../lien-he/index.html">Gửi RFQ / BOM</a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Thông tin liên hệ</h3>
+            <div class="footer-contact">
+              <div><span>Trụ sở</span><p>150/41 Nguyen Cu Trinh Street, Cau Ong Lanh Ward, District 1, Ho Chi Minh City, Vietnam</p></div>
+              <div><span>Vũng Tàu</span><p>51 Le Van Loc Street, Vung Tau City, Vietnam</p></div>
+              <div><span>Điện thoại</span><a href="tel:+84938888958">(+84) 938 888 958</a></div>
+              <div><span>Email</span><a href="mailto:sales@norgren.com.vn">sales@norgren.com.vn</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>© 2026 Norgren Việt Nam · <a href="https://fastgroup.vn" target="_blank" rel="noopener">Công ty TNHH Fast Group</a></div>
+          <div>Ưu tiên nguồn hàng Norgren UK/Europe; thông số và cấu hình được xác nhận trước khi đặt hàng.</div>
+        </div>
+      </div>
+    </footer>
+    <div class="floating-contact" aria-label="Liên hệ nhanh">
+      <a href="https://zalo.me/84938888958" aria-label="Liên hệ qua Zalo" title="Zalo"><span class="floating-icon" aria-hidden="true">Z</span>Zalo</a>
+      <a href="tel:+84938888958" aria-label="Gọi (+84) 938 888 958" title="Gọi ngay"><span class="floating-icon" aria-hidden="true">☎</span>Gọi ngay</a>
+    </div>
+    <script src="../../assets/search.js?v=20260614-visual-blog-2" defer></script>
+    <script>document.querySelector("[data-nav-toggle]")?.addEventListener("click",()=>{document.querySelector("[data-nav]")?.classList.toggle("is-open");});</script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="vi" data-base="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Van tỷ lệ lưu lượng VP60 Norgren IO-Link G1/4 – Kỹ thuật điều khiển vòng kín</title>
+    <meta name="description" content="Hướng dẫn kỹ thuật van VP6010LJLL1MB200 Norgren: van tỷ lệ lưu lượng G1/4 IO-Link, điều khiển vòng kín, ứng dụng kiểm soát lưu lượng khí nén chính xác trong tự động hóa." />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="https://norgren.vn/blog/van-ty-le-luu-luong-vp60-norgren-io-link-g14-ky-thuat/" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Norgren Việt Nam" />
+    <meta property="og:url" content="https://norgren.vn/blog/van-ty-le-luu-luong-vp60-norgren-io-link-g14-ky-thuat/" />
+    <meta property="og:title" content="Van tỷ lệ lưu lượng VP60 Norgren IO-Link G1/4 – Kỹ thuật điều khiển vòng kín" />
+    <meta property="og:description" content="Kỹ thuật van VP6010LJLL1MB200 Norgren VP60: van tỷ lệ lưu lượng G1/4 IO-Link điều khiển vòng kín." />
+    <meta property="og:image" content="https://norgren.vn/assets/images/site/home-industrial-automation.webp" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content="https://norgren.vn/assets/images/site/home-industrial-automation.webp" />
+    <meta name="theme-color" content="#101820" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="stylesheet" href="../../assets/site.css?v=20260614-visual-blog-2" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trang chủ","item":"https://norgren.vn/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://norgren.vn/blog/"},{"@type":"ListItem","position":3,"name":"Van tỷ lệ lưu lượng VP60 Norgren IO-Link G1/4","item":"https://norgren.vn/blog/van-ty-le-luu-luong-vp60-norgren-io-link-g14-ky-thuat/"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Van tỷ lệ lưu lượng VP60 Norgren IO-Link G1/4 – Kỹ thuật điều khiển vòng kín","description":"Kỹ thuật van VP6010LJLL1MB200 Norgren VP60 tỷ lệ lưu lượng G1/4 IO-Link.","mainEntityOfPage":"https://norgren.vn/blog/van-ty-le-luu-luong-vp60-norgren-io-link-g14-ky-thuat/","author":{"@type":"Organization","name":"Fast Group Engineering"},"publisher":{"@type":"Organization","name":"Fast Group Engineering"},"datePublished":"2026-06-15","dateModified":"2026-06-15"}</script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../../index.html" aria-label="Norgren Viet Nam"><span class="brand-mark" aria-hidden="true">N</span><span><span class="brand-name">Norgren Việt Nam</span><span class="brand-sub">Fast Group Engineering</span></span></a>
+        <nav class="nav" data-nav><a href="../../index.html">Trang chủ</a><a href="../../san-pham/index.html">Sản phẩm</a><a href="../../danh-muc/index.html">Danh mục</a><a href="../../tai-lieu/index.html">Tài liệu</a><a href="../../blog/index.html">Blog</a><a href="../../tim-kiem-ma-norgren/index.html">Tìm mã</a></nav>
+        <div class="header-actions"><a class="button button-primary" href="../../lien-he/index.html">Gửi RFQ</a><button class="icon-button" data-nav-toggle aria-label="Mở menu">☰</button></div>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero">
+        <div class="container page-hero-inner page-hero-grid">
+          <div class="page-hero-copy">
+            <div class="breadcrumb"><a href="../index.html">Blog</a><span>/</span><span>Van tỷ lệ lưu lượng VP60 Norgren IO-Link G1/4</span></div>
+            <div class="eyebrow">Kỹ thuật · Proportional Valves / Flow Control</div>
+            <h1>Van tỷ lệ lưu lượng VP60 Norgren IO-Link G1/4 – Kỹ thuật điều khiển lưu lượng vòng kín chính xác</h1>
+            <p class="lead">VP6010LJLL1MB200 là van tỷ lệ điều khiển lưu lượng (proportional flow control valve) của Norgren, cỡ G1/4 với giao tiếp IO-Link. Khác với VP23 (điều khiển áp suất), VP60 điều khiển lưu lượng khí nén theo set-point từ PLC/IO-Link master với vòng phản hồi kín.</p>
+          </div>
+          <figure class="page-hero-visual"><img src="../../assets/images/site/home-industrial-automation.webp" alt="Van tỷ lệ lưu lượng VP60 Norgren IO-Link G1/4" loading="eager" /></figure>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container blog-layout">
+          <article class="blog-article">
+            <p>Trong hệ thống khí nén tự động hóa, kiểm soát lưu lượng chính xác (flow control) đóng vai trò then chốt trong các ứng dụng như phun sơn định lượng, thổi khí định lượng, điều khiển tốc độ xi lanh khí nén, và cấp khí cho các quy trình kiểm soát áp lực chính xác. Van tỷ lệ VP60 của Norgren giải quyết nhu cầu này với giao tiếp IO-Link tích hợp.</p>
+
+            <h3>Sự khác biệt giữa VP60 (flow) và VP23 (pressure)</h3>
+            <div class="table-scroll"><table>
+              <thead><tr><th>Tiêu chí</th><th>VP60 (Flow Control)</th><th>VP23 (Pressure Control)</th></tr></thead>
+              <tbody>
+                <tr><td>Biến điều khiển</td><td>Lưu lượng (Qn, l/min)</td><td>Áp suất (P, bar)</td></tr>
+                <tr><td>Cảm biến phản hồi</td><td>Flow sensor tích hợp</td><td>Pressure sensor tích hợp</td></tr>
+                <tr><td>Ứng dụng tiêu biểu</td><td>Phun khí, tốc độ xi lanh</td><td>Kẹp công việc, cân bằng tải</td></tr>
+                <tr><td>Giao tiếp</td><td>IO-Link (IEC 61131-9)</td><td>IO-Link + analog</td></tr>
+                <tr><td>Cỡ cổng</td><td>G1/4</td><td>G1/4 – G3/8</td></tr>
+              </tbody>
+            </table></div>
+
+            <h3>Thông số kỹ thuật VP6010LJLL1MB200</h3>
+            <div class="table-scroll"><table>
+              <thead><tr><th>Thông số</th><th>Giá trị</th></tr></thead>
+              <tbody>
+                <tr><td>Series / model</td><td>VP6010LJLL1MB200 (VP60)</td></tr>
+                <tr><td>Chức năng</td><td>Van tỷ lệ điều khiển lưu lượng</td></tr>
+                <tr><td>Cỡ cổng</td><td>G1/4 (BSP)</td></tr>
+                <tr><td>Phạm vi lưu lượng</td><td>Tùy biến theo version – xem datasheet</td></tr>
+                <tr><td>Áp suất cấp</td><td>0 – 8 bar</td></tr>
+                <tr><td>Giao tiếp điều khiển</td><td>IO-Link (IEC 61131-9), 24 VDC</td></tr>
+                <tr><td>Set-point</td><td>Qua IO-Link process data (ISDU)</td></tr>
+                <tr><td>Phản hồi</td><td>Giá trị lưu lượng thực tế qua IO-Link</td></tr>
+                <tr><td>Nhiệt độ hoạt động</td><td>0°C – 50°C</td></tr>
+              </tbody>
+            </table></div>
+
+            <h3>Kiến trúc IO-Link và cách VP60 tích hợp vào hệ thống</h3>
+            <p>VP60 kết nối với IO-Link master (port class A, 3-wire M12) thông qua cáp tiêu chuẩn IO-Link. Từ IO-Link master, dữ liệu được truyền lên PLC qua PROFINET, EtherNet/IP hoặc các giao thức fieldbus khác. Set-point lưu lượng và giá trị phản hồi thực tế được trao đổi trong mỗi IO-Link cycle.</p>
+            <p>Ưu điểm so với van analog truyền thống: không cần chạy dây tín hiệu analog riêng (4-20mA / 0-10V) từ PLC đến van – chỉ cần một cáp M12 duy nhất cấp nguồn 24V và truyền dữ liệu IO-Link. Cấu hình van, zero calibration và chẩn đoán đều thực hiện qua IO-Link ISDU.</p>
+
+            <h3>Ứng dụng điển hình của VP60</h3>
+            <ul>
+              <li><strong>Phun khí định lượng (air blow-off)</strong>: Điều chỉnh lưu lượng khí phun để làm sạch sản phẩm theo từng kích thước/loại sản phẩm, tránh lãng phí khí nén.</li>
+              <li><strong>Điều khiển tốc độ xi lanh khí</strong>: Thay thế van tiết lưu (flow control valve) cơ học cố định bằng van tỷ lệ điều chỉnh được theo recipe.</li>
+              <li><strong>Cấp khí cho thiết bị kiểm tra</strong>: Quy trình test sản phẩm yêu cầu lưu lượng khí chính xác và có thể thay đổi theo program.</li>
+              <li><strong>Hệ thống thổi khí lớp (air curtain)</strong>: Điều chỉnh lưu lượng phù hợp tốc độ dây chuyền.</li>
+            </ul>
+
+            <h3>Cấu hình VP60 qua VP-Tool software</h3>
+            <p>Norgren cung cấp VP-Tool software (miễn phí) hỗ trợ cấu hình, commissioning và diagnostics cho toàn bộ dòng van VP qua IO-Link. Với VP60, VP-Tool cho phép: đặt set-point lưu lượng, xem giá trị phản hồi real-time, kiểm tra PID controller parameters và xuất báo cáo diagnostics. Đây là công cụ quan trọng trong quá trình commissioning và troubleshooting.</p>
+
+            <h2>FAQ</h2>
+            <h3>VP60 có thể điều khiển bằng analog 4–20mA thay IO-Link không?</h3>
+            <p>Model VP6010LJLL1MB200 là version IO-Link. Có các version analog khác trong dòng VP60 (ví dụ model kết thúc bằng các ký tự khác). Khi đặt hàng, xác nhận version theo giao tiếp cần sử dụng.</p>
+
+            <h3>IO-Link master nào tương thích với VP60?</h3>
+            <p>VP60 tương thích với bất kỳ IO-Link master nào đáp ứng IEC 61131-9 (Class A port). Các hãng phổ biến: Siemens, Balluff, IFM, Turck, Pepperl+Fuchs. Cần IODD file của VP60 (có thể tải từ trang Norgren hoặc IODDfinder) để cấu hình trong IO-Link master.</p>
+
+            <h2>Tóm tắt</h2>
+            <p>VP6010LJLL1MB200 là van tỷ lệ lưu lượng IO-Link phù hợp cho các ứng dụng yêu cầu kiểm soát lưu lượng khí nén chính xác, điều chỉnh được từ PLC qua IO-Link. Phân biệt rõ với VP23 (điều khiển áp suất) trước khi đặt hàng.</p>
+            <hr />
+            <div class="blog-commercial-cta"><h2>Cần báo giá VP6010LJLL1MB200 hoặc tư vấn van tỷ lệ lưu lượng?</h2><p>Mô tả ứng dụng và yêu cầu lưu lượng – Fast Group Engineering hỗ trợ tư vấn model và báo giá chính hãng.</p><div class="blog-cta-actions"><a class="button button-primary" href="../../lien-he/index.html">Gửi RFQ / tư vấn kỹ thuật</a><a class="button button-secondary" href="../../tim-kiem-ma-norgren/index.html">Tra cứu mã Norgren</a></div></div>
+          </article>
+          <aside class="blog-sidebar">
+            <div class="blog-side-card"><span class="doc-icon">📋</span><h3>Bài liên quan</h3><div class="blog-link-list"><a href="../van-ty-le-vp23-norgren-dieu-khien-ap-suat-luu-luong-vong-kin/">Van VP23 – Tỷ lệ áp suất IO-Link kỹ thuật</a><a href="../cam-bien-ap-suat-dd1-34d-norgren-io-link-doc-output-hieu-chuan/">Cảm biến áp suất 34D DD1 IO-Link</a><a href="../khi-nao-can-van-ty-le-vp23-thay-van-on-off-bai-toan-chi-phi/">Khi nào cần van tỷ lệ? Bài toán chi phí</a></div></div>
+            <div class="blog-side-card"><span class="doc-icon">RFQ</span><h3>Thông tin cần cho RFQ</h3><p>Model VP6010LJLL1MB200, ứng dụng (lưu lượng cần kiểm soát), áp suất hệ thống, IO-Link master đang dùng.</p><a class="button button-primary" href="../../lien-he/index.html">Gửi yêu cầu</a></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="footer-shell"><div class="footer-kicker">Norgren Việt Nam · Kênh tra cứu và báo giá Norgren chính hãng</div><div class="footer-main"><div class="footer-brand footer-column"><a class="footer-logo" href="../../index.html"><span class="brand-mark" aria-hidden="true">N</span><span><span class="footer-logo-title">Norgren Việt Nam</span><span class="footer-logo-sub">Fast Group Engineering</span></span></a><p>Cung cấp và hỗ trợ báo giá sản phẩm Norgren chính hãng cho nhà máy, đại lý, nhà thầu và bộ phận mua hàng kỹ thuật tại Việt Nam.</p><div class="footer-company"><strong>Công ty TNHH Fast Group</strong><span>MST: 0315555189</span></div></div><div class="footer-column"><h3>Danh mục Norgren</h3><div class="footer-links"><a href="../../san-pham/index.html">Tổng quan sản phẩm</a><a href="../../danh-muc/valves/">Valves</a><a href="../../danh-muc/pressure_switches_sensors/">Pressure Switches &amp; Sensors</a><a href="../../danh-muc/vacuum/">Vacuum</a><a href="../../danh-muc/industrial_communication/">Industrial Communication / IO-Link</a></div></div><div class="footer-column"><h3>Năng lực hỗ trợ</h3><div class="footer-links"><a href="../../tim-kiem-ma-norgren/index.html">Tra cứu part number</a><a href="../../tai-lieu/index.html">Datasheet &amp; tài liệu kỹ thuật</a><a href="../../blog/index.html">Blog kỹ thuật</a><a href="../../lien-he/index.html">Gửi RFQ / BOM</a></div></div><div class="footer-column"><h3>Thông tin liên hệ</h3><div class="footer-contact"><div><span>Trụ sở</span><p>150/41 Nguyen Cu Trinh Street, Cau Ong Lanh Ward, District 1, Ho Chi Minh City, Vietnam</p></div><div><span>Vũng Tàu</span><p>51 Le Van Loc Street, Vung Tau City, Vietnam</p></div><div><span>Điện thoại</span><a href="tel:+84938888958">(+84) 938 888 958</a></div><div><span>Email</span><a href="mailto:sales@norgren.com.vn">sales@norgren.com.vn</a></div></div></div></div><div class="footer-bottom"><div>© 2026 Norgren Việt Nam · <a href="https://fastgroup.vn" target="_blank" rel="noopener">Công ty TNHH Fast Group</a></div><div>Ưu tiên nguồn hàng Norgren UK/Europe; thông số và cấu hình được xác nhận trước khi đặt hàng.</div></div></div></footer>
+    <div class="floating-contact" aria-label="Liên hệ nhanh"><a href="https://zalo.me/84938888958" aria-label="Liên hệ qua Zalo" title="Zalo"><span class="floating-icon" aria-hidden="true">Z</span>Zalo</a><a href="tel:+84938888958" aria-label="Gọi (+84) 938 888 958" title="Gọi ngay"><span class="floating-icon" aria-hidden="true">☎</span>Gọi ngay</a></div>
+    <script src="../../assets/search.js?v=20260614-visual-blog-2" defer></script>
+    <script>document.querySelector("[data-nav-toggle]")?.addEventListener("click",()=>{document.querySelector("[data-nav]")?.classList.toggle("is-open");});</script>
+  </body>
+</html>
