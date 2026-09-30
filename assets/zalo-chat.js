@@ -1,4 +1,4 @@
-/* Nut Zalo "Chat" noi (giong kacon.vn) — Fast Group. Tu chen CSS + nut + popup QR (may tinh). Chi can nap file nay 1 lan. */
+/* Nut Zalo "Chat" noi (giong kacon.vn) — Fast Group. Web co .floating-contact (Norgren): giu nut cu, doi link Zalo -> OA. Tu chen CSS + nut + popup QR (may tinh). Chi can nap file nay 1 lan. */
 (function () {
   if (window.__fgZaloChat) return; window.__fgZaloChat = 1;
   var OA = 'https://zalo.me/3907049822973532881';
@@ -14,7 +14,7 @@
     + '.fgz-btn{display:inline-block;padding:10px 18px;border-radius:999px;background:#0068FF;color:#fff!important;font-weight:700;text-decoration:none!important}.fgz-btn:hover{background:#0052CC}'
     + '.fgz-tel{margin-top:12px!important}.fgz-tel a{color:#0068FF;font-weight:700;text-decoration:none}'
     + '.fgz-x{position:absolute;top:8px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:transparent;font-size:24px;line-height:1;color:#5b6475;cursor:pointer}.fgz-x:hover{background:#eef3fb}'
-    + '.floating-contact{display:none!important}.back-to-top{bottom:84px!important}@media(max-width:520px){.back-to-top{bottom:74px!important;right:14px!important}}'
+    + '.back-to-top{bottom:84px!important}@media(max-width:520px){.back-to-top{bottom:74px!important;right:14px!important}}'
     + '@media print{.fgz-fab,.fgz-pop{display:none!important}}';
   var desktop = function () { return window.matchMedia && matchMedia('(hover:hover) and (pointer:fine) and (min-width:900px)').matches; };
   var pop;
@@ -34,9 +34,18 @@
   function close() { if (pop) pop.hidden = true; }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   function init() {
+    // Web da co khoi lien he noi rieng (norgren.com.vn, norgren.vn): GIU NGUYEN nut cu, chi doi link Zalo sang Zalo OA
+    var fc = document.querySelectorAll('.floating-contact');
+    if (fc.length) {
+      for (var k = 0; k < fc.length; k++) {
+        var zs = fc[k].querySelectorAll('a[href*="zalo.me"]');
+        for (var m = 0; m < zs.length; m++) { zs[m].href = OA; zs[m].target = '_blank'; zs[m].rel = 'noopener'; }
+      }
+      return;
+    }
     if (document.querySelector('.fgz-fab')) return;
     var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
-    // .floating-contact cu (norgren) bi an bang CSS o tren — chi giu nut Zalo; .back-to-top (fastgroup) day len tren nut
+    // .back-to-top (fastgroup) day len tren nut
     var a = document.createElement('a');
     a.className = 'fgz-fab'; a.href = OA; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label', 'Chat Zalo với Fast Group');
     a.innerHTML = '<img src="' + ICON + '" alt="" width="26" height="26"><span>Chat</span>';
