@@ -34,11 +34,13 @@
   function close() { if (pop) pop.hidden = true; }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   function init() {
+    oaLinks();
     // Web da co khoi lien he noi rieng (norgren.com.vn, norgren.vn): GIU NGUYEN nut cu, chi doi link Zalo sang Zalo OA
     var fc = document.querySelectorAll('.floating-contact');
     if (fc.length) {
       for (var k = 0; k < fc.length; k++) {
-        var zs = fc[k].querySelectorAll('a[href*="zalo.me"]');
+        // .floating-contact co the CHINH LA the <a> (crouzet.vn, rheintacho.com.vn) hoac chua cac <a> ben trong (norgren)
+        var zs = fc[k].matches('a[href*="zalo.me"]') ? [fc[k]] : fc[k].querySelectorAll('a[href*="zalo.me"]');
         for (var m = 0; m < zs.length; m++) { zs[m].href = OA; zs[m].target = '_blank'; zs[m].rel = 'noopener'; }
       }
       return;
@@ -51,6 +53,28 @@
     a.innerHTML = '<img src="' + ICON + '" alt="" width="26" height="26"><span>Chat</span>';
     a.addEventListener('click', function (e) { if (desktop()) { e.preventDefault(); openPop(); } });
     document.body.appendChild(a);
+    // Web co thanh/nut co dinh o day man hinh (vd .float-cta tempil.vn): day nut Chat len tren de khong de len nhau
+    function lift() {
+      a.style.bottom = '';
+      var fr = a.getBoundingClientRect(), need = 0, els = document.body.getElementsByTagName('*');
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+        if (el === a || a.contains(el) || (pop && pop.contains(el)) || el === pop) continue;
+        var cs = getComputedStyle(el);
+        if (cs.position !== 'fixed' || cs.display === 'none' || cs.visibility === 'hidden') continue;
+        var r = el.getBoundingClientRect();
+        if (!r.width || !r.height || r.top < window.innerHeight / 2) continue;
+        if (r.left < fr.right && r.right > fr.left && r.top < fr.bottom && r.bottom > fr.top) need = Math.max(need, window.innerHeight - r.top + 12);
+      }
+      if (need) a.style.bottom = need + 'px';
+    }
+    lift(); setTimeout(lift, 1500);
+    var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(lift, 250); });
+  }
+  // Doi moi link Zalo ca nhan (0938888958) tren trang sang Zalo OA
+  function oaLinks() {
+    var ls = document.querySelectorAll('a[href*="zalo.me/0938888958"],a[href*="zalo.me/84938888958"],a[href*="zalo.me/+84938888958"]');
+    for (var i = 0; i < ls.length; i++) { ls[i].href = OA; ls[i].target = '_blank'; ls[i].rel = 'noopener'; }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
